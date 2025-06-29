@@ -1,5 +1,5 @@
 
-package com.yuvalperetz.nolowhpcake;
+package com.yuvalperetz.dravenrockcakehelper;
 
 import com.google.inject.Provides;
 import net.runelite.api.Client;
@@ -23,12 +23,12 @@ import javax.swing.JOptionPane;
         name = "Dwarven rock cake helper",
         description = "Warns before guzzling Dwarven rock cake at low HP and alerts when HP rises above threshold"
 )
-public class NoLowHpCakePlugin extends Plugin {
+public class DravenRockCakeHelperPlugin extends Plugin {
     @Inject
     private Client client;
 
     @Inject
-    private NoLowHpCakeConfig config;
+    private DravenRockCakeHelperConfig config;
 
     private int lastHp = -1;
 
@@ -81,14 +81,14 @@ public class NoLowHpCakePlugin extends Plugin {
     }
 
     @Provides
-    NoLowHpCakeConfig provideConfig(ConfigManager configManager) {
-        return configManager.getConfig(NoLowHpCakeConfig.class);
+    DravenRockCakeHelperConfig provideConfig(ConfigManager configManager) {
+        return configManager.getConfig(DravenRockCakeHelperConfig.class);
     }
 }
 
 
-@ConfigGroup("nolowhpcake")
-interface NoLowHpCakeConfig extends Config {
+@ConfigGroup("dravenrockcakehelper")
+interface DravenRockCakeHelperConfig extends Config {
 
     @ConfigItem(
             keyName = "hpThreshold",
