@@ -26,7 +26,6 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
-// group = 'com.example'
 group = 'com.yuvalperetz'
 version = '1.0.0'
 archivesBaseName = 'dravenrockcakehelper'
@@ -39,12 +38,12 @@ tasks.withType(JavaCompile).configureEach {
 tasks.register('shadowJar', Jar) {
 	dependsOn configurations.testRuntimeClasspath
 	manifest {
-		attributes('Main-Class': 'com.example.ExamplePluginTest', 'Multi-Release': true)
+		// Set the main class if needed for your plugin
+		attributes('Multi-Release': true)
 	}
 
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	from sourceSets.main.output
-	from sourceSets.test.output
 	from {
 		configurations.testRuntimeClasspath.collect { file ->
 			file.isDirectory() ? file : zipTree(file)
